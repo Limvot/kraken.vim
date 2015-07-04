@@ -17,8 +17,10 @@ syn match       type_body       ": *[a-zA-Z][a-zA-Z0-9_]* *\**"
 "syn region      templated_region    start='<' end='>'
 "syn region      templated_region    start="<" end="> *\**" contains=comma
 "syn region      functionCall    start="[a-zA-Z][a-zA-Z0-9_]*(" end=")" transparent
-syn match      functionCall    "[a-zA-Z][a-zA-Z0-9_]*("
-syn match      functionCall    '(\|)'
+syn match      functionCall    "[a-zA-Z][a-zA-Z0-9_]*(" contains=funcIdentifier,funcPerens transparent
+syn match      funcIdentifier  "[a-zA-Z][a-zA-Z0-9_]*"  contained
+syn match      funcPerens  '(' contained
+syn match      funcPerens  ')'
 
 
 syn keyword     krakenBool      true false
@@ -33,8 +35,10 @@ hi def link type_body       krakenType
 hi def link krakenOperator  Operator
 
 "hi def link krakenIdentifier    Identifier
-
+hi def link funcPerens      Operator
 hi def link functionCall    Identifier
+
+hi def link funcIdentifier  Identifier
 hi def link krakenBool      Boolean
 hi def link krakenConditional   Conditional
 hi def link krakenKeyword   Keyword
