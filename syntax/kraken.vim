@@ -3,7 +3,7 @@
 " Maintainer:   Nathan Braswell <miloignis@gmail.com>
 
 syn keyword     krakenKeyword       fun obj def var import return
-syn keyword     krakenConditional   if for while
+syn keyword     krakenConditional   if else for while
 syn keyword     krakenKeyword       break continue defer
 syn keyword     krakenType          int float char void double bool
 
@@ -12,6 +12,8 @@ syn match       krakenOperator      display '+\|-\|/\|*\|&\||\|!\|=\|\[\|\]\|::\
 syn match       numeric         display '\<\d\+'
 syn match       numeric         display '\<\d\.\d\+f\?'
 syn match       cpp_comment     display "//.*$"
+syn region      c_comment       start="/\*" end="\*/"
+"syn region      templated_region    start='<' end='>'
 syn match       type_body       ": *[a-zA-Z][a-zA-Z0-9_]* *\**"
 "syn match       krakenIdentifier    "[a-zA-Z][a-zA-Z0-9_]*"
 "syn region      templated_region    start='<' end='>'
@@ -26,9 +28,11 @@ syn match      funcPerens  ')'
 syn keyword     krakenBool      true false
 
 syn region      krakenString    start='"' end='"'
+syn region      krakenCharacter start="'" end="'"
 
 hi def link numeric     krakenNumber
 hi def link cpp_comment krakenComment
+hi def link c_comment krakenComment
 hi def link type_body       krakenType
 "hi def link templated_region       krakenType
 
@@ -45,4 +49,5 @@ hi def link krakenKeyword   Keyword
 hi def link krakenType      Type
 hi def link krakenNumber    Number
 hi def link krakenString    String
+hi def link krakenCharacter Character
 hi def link krakenComment   Comment
