@@ -14,7 +14,7 @@ syn match       numeric         display '\<\d\.\d\+f\?'
 syn match       cpp_comment     display "//.*$"
 syn region      c_comment       start="/\*" end="\*/"
 "syn region      templated_region    start='<' end='>'
-syn match       type_body       ": *[a-zA-Z][a-zA-Z0-9_]* *\**"
+syn match       type_body       ": *\**[a-zA-Z][a-zA-Z0-9_]*"
 "syn match       krakenIdentifier    "[a-zA-Z][a-zA-Z0-9_]*"
 "syn region      templated_region    start='<' end='>'
 "syn region      templated_region    start="<" end="> *\**" contains=comma
